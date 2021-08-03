@@ -58,7 +58,7 @@ const UsersList = (props) => {
                             return (
                                 <tr key={user._id}>
                                     <td>{user.name}</td>
-                                    <td>{user.skills.substring(0,50)}</td>
+                                    <td>{user.skills.substr(0,40)}</td>
                                     <td>{user.experience}</td>
                                     <td >{user.createdAt.slice(0,10)}</td>
                                     <td >
