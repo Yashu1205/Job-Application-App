@@ -41,58 +41,61 @@ const UsersList = (props) => {
         <div width="1116px">
             <h4>{title ? `${title}s` : 'All Candidates'} - {appliedUsers.length} </h4>
             <h6>List of candidates applied for {title} job</h6>
-            <table className=" table table-bordered mt-3" >
-                <thead>
-                    <tr>
-                        <th className="col-sm-1">Name</th>
-                        <th className="col-sm-3">Technical Skills</th>
-                        <th className="col-sm-2">Experience</th>
-                        <th className="col-sm-2">Applied Date</th>
-                        <th className="col-sm-1">ViewDetails</th>
-                        <th className="col-sm-3">Update Application Status</th>
-                    </tr>
-                </thead>
-                <tbody >
-                    {
-                        appliedUsers.map(user => {
-                            return (
-                                <tr key={user._id}>
-                                    <td>{user.name}</td>
-                                    <td>{user.skills.substr(0,40)}</td>
-                                    <td>{user.experience}</td>
-                                    <td >{user.createdAt.slice(0,10)}</td>
-                                    <td >
-                                        <button className="btn btn-info btn-sm"
-                                                onClick={() => viewDetails(user._id)}>
-                                            View</button>
-                                    </td>
-                                    
-                                    <td >
-                                        { user.status === 'shortlisted'  ? (
-                                            <button className="btn btn-success btn-sm ">Shortlisted</button>
-                                        ) : user.status === 'rejected' ? (
-                                            <button className="btn btn-danger btn-sm">Rejected</button>
-                                        ) : (
-                                            <>
-                                            <button className="btn btn-success btn-sm "
-                                                    onClick={() => updateApplicationStatus(user._id,'shortlisted')}>
-                                                Shortlist</button> 
-                                            <button className="btn btn-danger btn-sm ml-2" style={{marginLeft: '5px'}}
-                                                    onClick={() => updateApplicationStatus(user._id, 'rejected')}>
-                                                Reject</button>
-                                            </>
-                                        )
-                                        }
-                                    </td>
-                                </tr>
-                            )
-                        })
-                    }
-                    <tr></tr>
-                </tbody>
-            </table>
+            {
+                appliedUsers.length > 0 &&             
+                <table className=" table table-bordered mt-3" >
+                    <thead>
+                        <tr>
+                            <th className="col-sm-1">Name</th>
+                            <th className="col-sm-3">Technical Skills</th>
+                            <th className="col-sm-2">Experience</th>
+                            <th className="col-sm-2">Applied Date</th>
+                            <th className="col-sm-1">ViewDetails</th>
+                            <th className="col-sm-3">Update Application Status</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        {
+                            appliedUsers.map(user => {
+                                return (
+                                    <tr key={user._id}>
+                                        <td>{user.name}</td>
+                                        <td>{user.skills.substr(0,40)}</td>
+                                        <td>{user.experience}</td>
+                                        <td >{user.createdAt.slice(0,10)}</td>
+                                        <td >
+                                            <button className="btn btn-info btn-sm"
+                                                    onClick={() => viewDetails(user._id)}>
+                                                View</button>
+                                        </td>
+                                        
+                                        <td >
+                                            { user.status === 'shortlisted'  ? (
+                                                <button className="btn btn-success btn-sm ">Shortlisted</button>
+                                            ) : user.status === 'rejected' ? (
+                                                <button className="btn btn-danger btn-sm">Rejected</button>
+                                            ) : (
+                                                <>
+                                                <button className="btn btn-success btn-sm "
+                                                        onClick={() => updateApplicationStatus(user._id,'shortlisted')}>
+                                                    Shortlist</button> 
+                                                <button className="btn btn-danger btn-sm ml-2" style={{marginLeft: '5px'}}
+                                                        onClick={() => updateApplicationStatus(user._id, 'rejected')}>
+                                                    Reject</button>
+                                                </>
+                                            )
+                                            }
+                                        </td>
+                                    </tr>
+                                )
+                            })
+                        }
+                        <tr></tr>
+                    </tbody>
+                </table>
+            }
 
-        { showModal && 
+            { showModal && 
                     <UserDetailModal userDetail={userDetail} 
                                      showModal={showModal}
                                      handleModal={handleModal}/>}

@@ -213,9 +213,14 @@ const ApplicationForm = (props) => {
                                 }  
                             </td>
                         </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="submit" className="btn btn-primary" value="Send Application" />
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
-                <input type="submit" className="btn btn-primary" value="Send Application" />
             </form>
         </div>
     )
