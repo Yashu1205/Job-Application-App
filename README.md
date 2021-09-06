@@ -1,4 +1,4 @@
-This is a job application project where a candidate can apply for the job and the job status is handled by the admin.  It was build using React. It has two modules: applicant and admin.
+This is a job application project where a candidate can apply for the job and the job status is handled by the admin.  It was build using React. It has two modules: candidate and admin.
 
 Applicant: 
 - The candidate can simply apply for the job by filling the job application form.
