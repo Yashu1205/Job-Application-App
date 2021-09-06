@@ -4,7 +4,7 @@ Applicant:
 - The candidate can simply apply for the job by filling the job application form.
 
 Admin:  
--The admin can view all the applicants list.
+- The admin can view all the candidates list.
 - The candidates list can be filtered out according to the job title.
 - Each candidate details can be viewed.
 - Application status can be changed to either shortlisted or rejected.
