@@ -8,7 +8,7 @@ const ApplicationForm = (props) => {
     const [ fullName, setFullName ] = useState('')
     const [ email, setEmail ] = useState('')
     const [ mobile, setMobile ] = useState('')
-    const [ jobTitle, setJobTitle ] = useState()
+    const [ jobTitle, setJobTitle ] = useState('')
     const [ experience, setExperience ] = useState('')
     const [ techSkills, setTechSkills ] = useState('')
     const [ formErrors, setFormErrors ] = useState({})
@@ -16,7 +16,6 @@ const ApplicationForm = (props) => {
     const errors = {}
     
     const options = [
-        {value: 'Select---', label: ''},
         { value: 'Front-End Developer', label: 'Front-End Developer'},
         { value: 'Node.js Developer', label: 'Node.js Developer'},
         { value: 'MEAN Stack Developer', label: 'MEAN Stack Developer' },
@@ -83,7 +82,7 @@ const ApplicationForm = (props) => {
             errors.mobile = 'Invalid mobile number'
         }
 
-        if(jobTitle.value.trim().length === 0){
+        if(jobTitle === ''){
             errors.jobTitle = 'Job title cannot be blank'
         }
 
@@ -113,7 +112,6 @@ const ApplicationForm = (props) => {
                 'jobTitle': jobTitle.value,
                 'experience': experience
             }
-            
             axios.post('http://dct-application-form.herokuapp.com/users/application-form', formData)
                  .then((response) => {
                         Swal.fire('Success','Application submitted successfully','success')
@@ -162,11 +160,11 @@ const ApplicationForm = (props) => {
                         <tr>
                             <td>Contact Number</td>
                             <td>
-                                <input type="text" className="form-control form-control-sm"
+                                <input type="number" className="form-control form-control-sm"
                                         name="mobile" 
                                         value={mobile} 
                                         onChange={handleChange} 
-                                        placeholder="+91 9988554433" />
+                                        placeholder="9988554433" />
                                 { formErrors.mobile && 
                                     <span className="text-danger">{ formErrors.mobile }</span> 
                                 } 
