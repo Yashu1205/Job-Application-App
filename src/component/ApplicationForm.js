@@ -22,6 +22,10 @@ const ApplicationForm = (props) => {
         { value: 'FULL Stack Delveloper', label: 'FULL Stack Delveloper'}
     ]
 
+    const handleToggle = () => {
+        setIsSaved(!isSaved)
+    }
+
     useEffect(() => {
         if(isSaved){
             setFullName('')
@@ -35,9 +39,7 @@ const ApplicationForm = (props) => {
         }
     },[isSaved])
     
-    const handleToggle = () => {
-        setIsSaved(!isSaved)
-    }
+    
 
     const handleChange = (e) => {
         const inputName = e.target.name
@@ -112,7 +114,7 @@ const ApplicationForm = (props) => {
                 'jobTitle': jobTitle.value,
                 'experience': experience
             }
-            axios.post('http://dct-application-form.herokuapp.com/users/application-form', formData)
+            axios.post('https://dct-application-form.herokuapp.com/users/application-form', formData)
                  .then((response) => {
                         Swal.fire('Success','Application submitted successfully','success')
                         handleToggle()

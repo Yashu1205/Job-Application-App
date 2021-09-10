@@ -10,7 +10,7 @@ const AdminDashboard = (props) => {
     const [key, setKey] = useState('');
 
     useEffect(() => {
-        axios.get('http://dct-application-form.herokuapp.com/users/application-forms')
+        axios.get('https://dct-application-form.herokuapp.com/users/application-forms')
              .then((response) => {
                  const result = response.data
                  setUsers(result.reverse())

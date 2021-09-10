@@ -8,9 +8,10 @@ const UsersList = (props) => {
     const { appliedUsers, title, updateStatus } = props
     const [ showModal, setShowModal ] = useState(false)
     const [ userDetail, setUserDetail ] = useState({})
+    const baseUrl = 'https://dct-application-form.herokuapp.com/users/application-form'
 
     const viewDetails = (id) => {
-        axios.get(`http://dct-application-form.herokuapp.com/users/application-form/${id}`)
+        axios.get(`${baseUrl}/${id}`)
              .then((response) => {
                  const result = response.data
                  setUserDetail(result)
@@ -26,7 +27,7 @@ const UsersList = (props) => {
     }
 
     const updateApplicationStatus = (id, status) => {
-        axios.put('http://dct-application-form.herokuapp.com/users/application-form/update/'+id,
+        axios.put(`${baseUrl}/update/${id}`,
                  { "status": status})
              .then((response) => {
                  Swal.fire('Success',`Applicant is ${status}`,'success')
