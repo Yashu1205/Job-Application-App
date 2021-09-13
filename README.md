@@ -23,11 +23,10 @@ This is a job application project where a candidate can apply for the job and th
   -  Custom validation is implemented for the form. 
 
 + Admin
- - The admin can view all the candidates list.
- - The candidates list can be filtered out based on the job title.
- - Each candidate details can be viewed.
- - Application status can be changed either to shortlisted or rejected.
-
+  -  The admin can view all the candidates list.
+  -  The candidates list can be filtered out based on the job title.
+  -  Each candidate details can be viewed.
+  -  Application status can be changed either to shortlisted or rejected.
 
 # Contributors
   ### [YashodaBhattarai](https://github.com/Yashu1205)
